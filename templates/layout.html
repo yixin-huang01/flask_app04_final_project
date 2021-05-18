@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Projcet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  </head>
+
+  <body>
+
+    {% with username=username %}
+    {% include "includes/_navbar.html" %}
+    {% endwith %}
+
+    <div class="row">
+        <!--{% include 'includes/_messages.html' %}-->
+        {% block content %} {% endblock %}
+    </div>
+
+
+    <div class="nextSection">
+    <hr size = "5px" color = "#B0C4DE" align = "center"> </hr>
+    </div>
+    <style>
+    p{
+      font-size: 15px;
+    }
+    p:hover{
+      color: #4682B4;
+      cursor: pointer;
+    }
+    .container{
+    	text-align: center;
+    }
+    </style>
+
+  </body>
+</html> 

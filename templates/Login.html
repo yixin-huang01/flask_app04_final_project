@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="col-sm-2"></div>
+    <div class="col-md-8">
+<div class="center-block">
+          <h1>Login</h1>
+          <form action="" method="post" novalidate>
+            <div class='form-group'>
+                {{ form.csrf_token }}
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.username.label }}<br>
+                    {{ form.username(size=32) }}
+                </p>
+            </div>
+            <div class='form_group'>
+                 <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=32) }}
+                </p>
+                <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+                <p id="forgotPW"> Forgot Password? </p>
+                <p>{{ form.submit() }}</p>
+            </div>
+            <div class="container">
+                {% if error %}
+                    <div style="color:tomato;">{{error}}</div>
+                {% endif %}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div style="color:tomato;">{{ message | safe}}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+          </form>
+</div>
+        <div class="col-sm-2"></div>
+</div>
+{% endblock %}
